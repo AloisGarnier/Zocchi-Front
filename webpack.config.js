@@ -12,7 +12,12 @@ module.exports = {
     historyApiFallback: true,
     allowedHosts: [
       '34.155.210.161'
-       ]
+       ],
+    client: {
+      overlay: {
+        runtimeErrors: false, 
+      },
+    }, 
   },
   plugins: [
     new HtmlWebpackPlugin({

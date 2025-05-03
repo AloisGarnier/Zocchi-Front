@@ -9,20 +9,23 @@
 	box-sizing: border-box;
 }
 
+body {
+  /*background-image: url("https://img.goodfon.com/original/1920x1080/e/8c/village-houses-river-waterfalls-forest-trees-rocks-cliff-lan.jpg");
+  background-image: url("https://images.vexels.com/media/users/3/312689/raw/5e6a74e9b8e3940cdef3ee5c406fe16f-rpg-game-dice-colorful-pattern-design.jpg");
+  background-size: cover;*/
+}
+
 html {
 	font-family: 'Oxygen';
 	user-select: none;
-  background-image: url("https://img.goodfon.com/original/1920x1080/e/8c/village-houses-river-waterfalls-forest-trees-rocks-cliff-lan.jpg");
 }
 
 .my-app {
-  background-image: url("https://img.goodfon.com/original/1920x1080/e/8c/village-houses-river-waterfalls-forest-trees-rocks-cliff-lan.jpg");
   display: flex;
 	position: relative;
 	margin: 0 auto;
 	padding: 0;
-	height: 100vh;
-	width: 100%;
+
 }
 
 /*=========== content =============*/
@@ -175,6 +178,22 @@ ul, li {
     max-width: 1000px !important;
   }
 
+  /* ========== text ============== */
+
+  .pres-text {
+    max-width: 75% !important;
+  }
+
+  .opt-text {
+    max-width: 20% !important;
+    text-align: center !important;
+  }
+
+
+  p {
+    text-align : justify !important;
+  }
+
   /*=========== icones ============= */
 
   .large-icon {
@@ -184,6 +203,67 @@ ul, li {
   .norm-icon {
     font-size: 20px !important;
   }
+
+  .img-icon {
+    max-width: 50px !important;
+  }
+
+  /*=========== navbar ============= */
+
+  .my-navbar {
+    color: transparent !;
+  }
+
+  .language-button {
+    max-width: 25px !important;
+    max-height: 25px !important;
+    background-color: transparent !important;
+    border: transparent !important;
+  }
+
+    /*=========== sheets & maps ============= */
+
+    .square {
+      width: 50px !important;
+      height: 50px !important;
+      margin: 1px !important;
+      border: dashed !important;
+    }
+
+    .square-2 {
+      width: 102px !important;
+      height: 50px !important;
+      margin: 1px !important;
+      border: dashed !important;
+    }
+
+    .square-3 {
+      width: 154px !important;
+      height: 50px !important;
+      margin: 1px !important;
+      border: dashed !important;
+    }
+
+    .square-4 {
+      width: 206px !important;
+      height: 50px !important;
+      margin: 1px !important;
+      border: dashed !important;
+    }
+
+    .square-5 {
+      width: 258px !important;
+      height: 50px !important;
+      margin: 1px !important;
+      border: dashed !important;
+    }
+
+    /*============ vertical line ============ */
+
+    .vl {
+      border-left: 3px solid lightgray;
+      border-radius: 50%;
+    }
   
   /* ======== Gooey menu =========*/
 
