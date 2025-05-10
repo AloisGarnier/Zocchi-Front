@@ -37,7 +37,7 @@ html {
 	display: flex !important;
 	flex-direction: row !important;
 	align-items: center !important;
-	justify-content: space-around !important;
+	justify-content: space-evenly !important;
 }
 
 .btn-nullified {
@@ -178,6 +178,7 @@ ul, li {
     max-width: 1000px !important;
   }
 
+
   /* ========== text ============== */
 
   .pres-text {
@@ -223,7 +224,33 @@ ul, li {
 
     /*=========== sheets & maps ============= */
 
-    .square {
+    .store {
+      width: 300px !important;
+      height: 250px !important;
+    }
+
+    .numfield {
+      width: 40px !important;
+      height: 40px !important;
+    }
+
+    .my-label {
+      border: none !important;
+    }
+
+    .tiny-input {
+      width: 20px !important;
+      height: 20px !important;
+      margin-top: -10px !important;
+      padding: 0 !important;
+   }
+
+    .select-dropdown {
+      width: 258px !important;
+      height: 50px !important;
+    }
+
+    .square, .square-1 {
       width: 50px !important;
       height: 50px !important;
       margin: 1px !important;
@@ -242,6 +269,12 @@ ul, li {
       height: 50px !important;
       margin: 1px !important;
       border: dashed !important;
+    }
+
+    .square-3-nd {
+      width: 154px !important;
+      height: 50px !important;
+      margin: 1px !important;
     }
 
     .square-4 {
@@ -282,11 +315,10 @@ ul, li {
 }
 
 .navbar__global {
-  position: sticky;
+  position: sticky !important;
   height: fit-content !important;
   top: 1rem;
   left: 1rem;
-  background: #b58900;
   border-radius: 10px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
   z-index: 1000 !important;

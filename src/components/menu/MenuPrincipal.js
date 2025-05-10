@@ -39,6 +39,7 @@ export default function MenuPrincipal(props) {
     const menuOptions = [
         {chemin : "/", nom : text.displayText('about', language)},
         {chemin : "/nouveautes", nom : text.displayText('news', language)},
+        {chemin : "/aide", nom : text.displayText('help', language)},
         {chemin : "/legal", nom : text.displayText('mentionslegales', language)},
     ]
 
@@ -147,7 +148,7 @@ export default function MenuPrincipal(props) {
     }
 
     return(
-        <nav class="navbar navbar-expand-lg bg-primary mb-3 my-navbar" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg bg-primary my-navbar" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/"><img class="img-icon" src={icon}></img></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">

@@ -35,7 +35,7 @@ export default function MenuCampagne(props) {
     }
 
     return(
-        <nav class="navbar__global">
+        <nav class="navbar__global alert alert-secondary my-3">
             <ul class="navbar__menu">
                 {afficherOptions()}
             </ul>

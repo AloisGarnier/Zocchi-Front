@@ -12,7 +12,7 @@ import icon from "../img/icon.png"
 import { Helmet } from "react-helmet"
 import { ThemeProvider } from "./utils/context.js"
 import MenuPrincipal from "./menu/MenuPrincipal.js"
-import MenuCampagne from "./menu/MenuCampagne.js";
+import MenuCampagne from "./menu/MenuCampagne.js"
 import Characters from "./characters/Characters.js"
 import Presentation from "./presentation/Presentation.js"
 import Maps from "./maps/Maps.js"
@@ -35,7 +35,7 @@ export default function App() {
         </Helmet>
         <MenuCampagne/>
         
-        <div class="my-main-content">
+        <div class="my-main-content mt-3">
           <Routes>
             <Route exact path="/" element={<Presentation/>}/>
             <Route exact path="/personnages" element={<Characters/>}/>

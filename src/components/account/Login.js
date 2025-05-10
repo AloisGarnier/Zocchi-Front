@@ -66,47 +66,45 @@ export default function Login(props) {
     }
 
     return(
-        <Card header='connection'>
-            <div class="d-flex flex-row">
-                <div class="d-flex flex-column align-items-center mx-3">
-                    <div class="mb-3">
-                        {text.displayText('alreadyaccount', language)}
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="floatingInput" value={usernameLogin} onChange={event => setUsernameLogin(event.target.value)}/>
-                        <label for="floatingInput">{text.displayText('username', language)}</label>
-                    </div>
-                    <div class="form-floating">
-                        <input type="password" class="form-control" id="floatingPassword" autocomplete="off" value={passwordLogin} onChange={event => setPasswordLogin(event.target.value)}/>
-                        <label for="floatingPassword">{text.displayText('password', language)}</label>
-                    </div>
-                    {wrongLoginwarning()}
-                    <a type='button' class="btn btn-success mt-3" onClick={() => fetchCustomer()}>
-                        {text.displayText('connexion', language)}
-                    </a>
+        <div class="d-flex flex-row">
+            <div class="d-flex flex-column align-items-center mx-3">
+                <div class="mb-3">
+                    {text.displayText('alreadyaccount', language)}
                 </div>
-                <div class="vl mx-3"/>
-                <div class="d-flex flex-column align-items-center mx-3">
-                    <div class="mb-3">
-                        {text.displayText('wantcreateaccount', language)}
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="floatingInput" value={usernameSignup} onChange={event => setUsernameSignup(event.target.value)}/>
-                        <label for="floatingInput">{text.displayText('username', language)}</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingMail" value={emailSignup} onChange={event => setEmailSignup(event.target.value)}/>
-                        <label for="floatingInput">{text.displayText('email', language)}</label>
-                    </div>
-                    <div class="form-floating">
-                        <input type="password" class="form-control" id="floatingPassword" autocomplete="off" value={passwordSignup} onChange={event => setPasswordSignup(event.target.value)}/>
-                        <label for="floatingPassword">{text.displayText('password', language)}</label>
-                    </div>
-                    <a type='button' class="btn btn-info mt-3" onClick={() => fetchCustomer()}>
-                        {text.displayText('accountcreate', language)}
-                    </a>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="floatingInput" value={usernameLogin} onChange={event => setUsernameLogin(event.target.value)}/>
+                    <label for="floatingInput">{text.displayText('username', language)}</label>
                 </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" autocomplete="off" value={passwordLogin} onChange={event => setPasswordLogin(event.target.value)}/>
+                    <label for="floatingPassword">{text.displayText('password', language)}</label>
+                </div>
+                {wrongLoginwarning()}
+                <a type='button' class="btn btn-success mt-3" onClick={() => fetchCustomer()}>
+                    {text.displayText('connexion', language)}
+                </a>
             </div>
-        </Card>     
+            <div class="vl mx-3"/>
+            <div class="d-flex flex-column align-items-center mx-3">
+                <div class="mb-3">
+                    {text.displayText('wantcreateaccount', language)}
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="floatingInput" value={usernameSignup} onChange={event => setUsernameSignup(event.target.value)}/>
+                    <label for="floatingInput">{text.displayText('username', language)}</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingMail" value={emailSignup} onChange={event => setEmailSignup(event.target.value)}/>
+                    <label for="floatingInput">{text.displayText('email', language)}</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" autocomplete="off" value={passwordSignup} onChange={event => setPasswordSignup(event.target.value)}/>
+                    <label for="floatingPassword">{text.displayText('password', language)}</label>
+                </div>
+                <a type='button' class="btn btn-info mt-3" onClick={() => fetchCustomer()}>
+                    {text.displayText('accountcreate', language)}
+                </a>
+            </div>
+        </div>
     )
 }

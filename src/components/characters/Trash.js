@@ -14,7 +14,7 @@ export default function Trash(props) {
     
     return (
     <div ref={setNodeRef}>
-        <i class="fa-duotone fa-solid fa-trash-xmark"></i>
+        <i class="fa-duotone fa-solid fa-trash-xmark fa-3x"></i>
     </div>
     )
 }
