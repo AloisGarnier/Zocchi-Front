@@ -7,9 +7,9 @@ export default function ItemDetails(props) {
 
     const {domain, language, changeLanguage, user, changeUser} = useContext(ThemeContext)
 
-    function actionOnChangeLabel(newValue) {
-        props.setSelected({x:props.selected.x, y:props.selected.y, id:props.selected.id, type:"label", label:newValue})
-        props.modifyItem({x:props.selected.x, y:props.selected.y, id:props.selected.id, type:"label", label:newValue}, null)
+    function actionOnChange(newValue) {
+        props.setSelected({x:props.selected.x, y:props.selected.y, id:props.selected.id, type:props.selected.type, label:newValue})
+        props.modifyItem({x:props.selected.x, y:props.selected.y, id:props.selected.id, type:props.selected.type, label:newValue}, null)
     }
 
     function form() {
@@ -24,7 +24,7 @@ export default function ItemDetails(props) {
                                     type="text" 
                                     class="form-control square-3-nd" 
                                     id="inputDefault" 
-                                    onChange={event => actionOnChangeLabel(event.target.value)}
+                                    onChange={event => actionOnChange(event.target.value)}
                                     value={props.selected.label}/>
                             </div>
                         </div>
@@ -38,7 +38,7 @@ export default function ItemDetails(props) {
                                     type="text" 
                                     class="form-control square-3-nd" 
                                     id="inputDefault" 
-                                    onChange={event => actionOnChangeLabel(event.target.value)}
+                                    onChange={event => actionOnChange(event.target.value)}
                                     value={props.selected.label}/>
                             </div>
                             <fieldset class="d-flex flex-row my-2">
@@ -67,7 +67,7 @@ export default function ItemDetails(props) {
                                     type="text" 
                                     class="form-control square-3-nd" 
                                     id="inputDefault" 
-                                    onChange={event => actionOnChangeLabel(event.target.value)}
+                                    onChange={event => actionOnChange(event.target.value)}
                                     value={props.selected.label}/>
                             </div>
                             <fieldset class="d-flex flex-row my-2">

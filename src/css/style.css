@@ -9,12 +9,6 @@
 	box-sizing: border-box;
 }
 
-body {
-  /*background-image: url("https://img.goodfon.com/original/1920x1080/e/8c/village-houses-river-waterfalls-forest-trees-rocks-cliff-lan.jpg");
-  background-image: url("https://images.vexels.com/media/users/3/312689/raw/5e6a74e9b8e3940cdef3ee5c406fe16f-rpg-game-dice-colorful-pattern-design.jpg");
-  background-size: cover;*/
-}
-
 html {
 	font-family: 'Oxygen';
 	user-select: none;
@@ -224,6 +218,11 @@ ul, li {
 
     /*=========== sheets & maps ============= */
 
+    .min-hw {
+      min-width: 50px !important;
+      min-height: 50px !important;
+    }
+
     .store {
       width: 300px !important;
       height: 250px !important;
@@ -289,6 +288,10 @@ ul, li {
       height: 50px !important;
       margin: 1px !important;
       border: dashed !important;
+    }
+
+    .z1000 {
+      z-index: 10000 !important;
     }
 
     /*============ vertical line ============ */

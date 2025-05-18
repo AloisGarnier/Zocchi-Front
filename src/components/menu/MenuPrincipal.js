@@ -17,6 +17,7 @@ export default function MenuPrincipal(props) {
     const [campaigns, setCampaigns] = useState([])
 
     useEffect(() => fetchOwner(), [])
+    useEffect(() => fetchCampaigns(), [campaign])
 
     function fetchOwner() {
         let savedUser = JSON.parse(window.localStorage.getItem("user"))
@@ -31,9 +32,11 @@ export default function MenuPrincipal(props) {
     }
 
     function fetchCampaigns() {
-        fetch(campaignUrl + "byPlayer/" + JSON.parse(window.localStorage.getItem("user")).id)
-            .then(response => response.json())
-            .then(json => setCampaigns(json))
+        if(JSON.parse(window.localStorage.getItem("user"))) {
+            fetch(campaignUrl + "byPlayer/" + JSON.parse(window.localStorage.getItem("user")).id)
+                .then(response => response.json())
+                .then(json => setCampaigns(json))
+        }
     }
 
     const menuOptions = [
@@ -72,7 +75,7 @@ export default function MenuPrincipal(props) {
                 )
             } else if(accountOptions[i].chemin == "deconnexion") {
                 affichageAccount.push(
-                    <Dropdown.Item href="/ "onClick={() => changeUser(null)}>{accountOptions[i].nom}</Dropdown.Item>
+                    <Dropdown.Item href="/" onClick={() => changeUser(null)}>{accountOptions[i].nom}</Dropdown.Item>
                 )
             } else {
                 affichageAccount.push(
@@ -99,22 +102,16 @@ export default function MenuPrincipal(props) {
             if(campaigns && typeof campaigns[Symbol.iterator] === 'function') {
                 for(const c of campaigns) {
                     if(campaign && c.code == campaign.code) {
-                        campaignDisplay.push(
-                            <Dropdown.Item className="green" onClick={() => changeCampaign(c)}>{displayCampaign(c)} {badges(c)}</Dropdown.Item>
-                        )
+                        campaignDisplay.push(<Dropdown.Item className="green" onClick={() => changeCampaign(c)}>{displayCampaign(c)} {badges(c)}</Dropdown.Item>)
                     } else {
-                        campaignDisplay.push(
-                            <Dropdown.Item onClick={() => changeCampaign(c)}>{displayCampaign(c)} {badges(c)}</Dropdown.Item>
-                        )
+                        campaignDisplay.push(<Dropdown.Item onClick={() => changeCampaign(c)}>{displayCampaign(c)} {badges(c)}</Dropdown.Item>)
                     }
                 }
-                campaignDisplay.push(
-                    <Dropdown.Divider/>
-                )
+                campaignDisplay.push(<Dropdown.Divider/>)
             }
-            campaignDisplay.push(
-                <Dropdown.Item>{text.displayText('newcampaign', language)}</Dropdown.Item>
-            )
+            campaignDisplay.push(<Dropdown.Item href="/nouvelle-campagne">{text.displayText('newcampaign', language)}</Dropdown.Item>)
+            campaignDisplay.push(<Dropdown.Divider/>)
+            campaignDisplay.push(<Dropdown.Item href="/rejoindre-campagne">{text.displayText('joincampaign', language)}</Dropdown.Item>)
             return(
                 <Dropdown className="mx-3">
                     <Dropdown.Toggle variant="secondary" id="dropdown-basic">

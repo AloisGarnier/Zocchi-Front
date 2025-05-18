@@ -9,34 +9,46 @@ export default function Characters(props) {
 
     const {domain, language, changeLanguage, user, changeUser, campaign, changeCampaign} = useContext(ThemeContext)
 
+    const charUrl = domain + 'charsheet/'
+
     const [sheets, setSheets] = useState([])
     const [sheet, setSheet] = useState(null)
 
     useEffect(() => fetchSheets(), [])
-    
-    function fetchSheets() {
-        let newSheets = []
-        if(!campaign.characterName) {
-            newSheets.push({name:text.displayText('creationperso', language), id:0})
+    useEffect(() => fetchSheets(), [campaign])
+
+    function processSheets(json, newSheets, index) {
+        if(json) {
+            for(let i=0; i<json.length; i++) {
+                newSheets.push(json[i])
+            }
+            setSheets(newSheets) 
+            setSheet(newSheets[index])
         }
-        setSheets(newSheets)
-        setSheet(newSheets[0])
     }
-
-    function switchSheet() {
-
+    
+    function fetchSheets(index = 0) {
+        let newSheets = []
+        if(campaign) {
+            if(!campaign.characterName) {
+                newSheets.push({name:text.displayText('creationperso', language), id:0})
+            }
+            fetch(charUrl + "campaign/" + campaign.id)
+                .then(response => response.json())
+                .then(json => processSheets(json, newSheets, index))
+        }
     }
 
     function selectDropdown() {
         let options = []
         for(let i=0; i<sheets.length; i++) {
             options.push(
-                <option value={sheets[i].id}>{sheets[i].name}</option>
+                <option value={i}>{sheets[i].name}</option>
             )
         }
 
         return(
-            <select class="form-select select-dropdown mb-3" id="exampleSelect1" onChange={() => switchSheet()}>
+            <select class="form-select select-dropdown mb-3" id="exampleSelect1" onChange={(event) => {fetchSheets(event.target.value)}}>
                 {options}
             </select>
         )
@@ -47,7 +59,7 @@ export default function Characters(props) {
             if(sheet.id == 0) {
                 return <TemplateCreation />
             }
-            return <CharacterSheet />
+            return <CharacterSheet sheet={sheet}/>
         }
     }
 

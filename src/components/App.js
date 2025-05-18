@@ -17,6 +17,8 @@ import Characters from "./characters/Characters.js"
 import Presentation from "./presentation/Presentation.js"
 import Maps from "./maps/Maps.js"
 import Login from "./account/Login.js"
+import JoinCampaign from "./account/JoinCampaign.js"
+import NewCampaign from "./account/NewCampaign.js"
 
 export default function App() {
 
@@ -41,6 +43,8 @@ export default function App() {
             <Route exact path="/personnages" element={<Characters/>}/>
             <Route exact path="/lieux" element={<Maps/>}/>
             <Route exact path="/connexion" element={<Login/>}/>
+            <Route exact path="/rejoindre-campagne" element={<JoinCampaign/>}/>
+            <Route exact path="/nouvelle-campagne" element={<NewCampaign/>}/>
             <Route path="*" element={<Navigate to="/"/>}/>
           </Routes>
         </div>

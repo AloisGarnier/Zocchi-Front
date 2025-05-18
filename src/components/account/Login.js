@@ -16,7 +16,7 @@ export default function Login(props) {
     const [passwordSignup, setPasswordSignup] = useState("")
     const [wrongLogin, setWrongLogin] = useState("")
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const backUrl = domain + "security/"
 
@@ -65,6 +65,20 @@ export default function Login(props) {
         }
     }
 
+    function createAccount() {
+        const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    username: usernameSignup,
+                    email: emailSignup,
+                    password: passwordSignup})
+            }
+            fetch(backUrl + "register", requestOptions)
+                .then(response => jsonIfNotNull(response))
+                .then(json => ownerRegistration(json))
+    }
+
     return(
         <div class="d-flex flex-row">
             <div class="d-flex flex-column align-items-center mx-3">
@@ -97,11 +111,11 @@ export default function Login(props) {
                     <input type="email" class="form-control" id="floatingMail" value={emailSignup} onChange={event => setEmailSignup(event.target.value)}/>
                     <label for="floatingInput">{text.displayText('email', language)}</label>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating mb-3">
                     <input type="password" class="form-control" id="floatingPassword" autocomplete="off" value={passwordSignup} onChange={event => setPasswordSignup(event.target.value)}/>
                     <label for="floatingPassword">{text.displayText('password', language)}</label>
                 </div>
-                <a type='button' class="btn btn-info mt-3" onClick={() => fetchCustomer()}>
+                <a type='button' class="btn btn-info" onClick={() => createAccount()}>
                     {text.displayText('accountcreate', language)}
                 </a>
             </div>
