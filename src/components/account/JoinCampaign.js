@@ -53,11 +53,11 @@ export default function JoinCampaign(props) {
         return(
             <div class="d-flex flex-column align-items-center">
                 {text.displayText('joincampaign1', language) + campaignToJoin.name + text.displayText('joincampaign2', language) + campaignToJoin.characterName + text.displayText('joincampaign3', language)}
-                <div class="form-floating mb-3">
+                <div class="form-floating my-3">
                     <input class="form-control" id="floatingInput" value={charName} onChange={event => setCharName(event.target.value)}/>
                     <label for="floatingInput">{text.displayText('charName', language)}</label>
                 </div>
-                <a type='button' class="btn btn-success mt-3" onClick={() => joinCampaign()}>
+                <a type='button' class="btn btn-success mb-3" onClick={() => joinCampaign()}>
                     {text.displayText('join', language)}
                 </a>
             </div>
@@ -73,7 +73,7 @@ export default function JoinCampaign(props) {
                 <input class="form-control" id="floatingInput" value={code} onChange={event => setCode(event.target.value)}/>
                 <label for="floatingInput">{text.displayText('code', language)}</label>
             </div>
-            <a type='button' class="btn btn-info" onClick={() => fetchCampaignToJoin()}>
+            <a type='button' class="btn btn-info mb-3" onClick={() => fetchCampaignToJoin()}>
                 {text.displayText('search', language)}
             </a>
             {campaignToJoinDisplay()}

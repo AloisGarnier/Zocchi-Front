@@ -5,7 +5,7 @@ import * as text from "../utils/text.js"
 
 export default function MenuCampagne(props) {
 
-    const {domain, language, changeLanguage, user, changeUser} = useContext(ThemeContext)
+    const {domain, language, changeLanguage, user, changeUser, campaign, changeCampaign} = useContext(ThemeContext)
 
     const menuOptions = [
         {chemin : "/personnages", icone : "fa-duotone fa-solid fa-helmet-battle", nom : text.displayText('char', language)},
@@ -21,14 +21,21 @@ export default function MenuCampagne(props) {
         for(var i = 0; i<options.length; i++) {
             affichageOptions.push(
                 <li class="navbar__item">
-                    <a href={options[i].chemin} class="navbar__link"><i class={options[i].icone}></i><span>{options[i].nom}</span></a>
+                    <a href={options[i].chemin} class="navbar__link sm-width"><i class={options[i].icone}></i><span>{options[i].nom}</span></a>
                 </li>
             )
+        }
+        if(!c.characterName) {
+          affichageOptions.push(
+                <li class="navbar__item">
+                    <a href="/options" class="navbar__link sm-width"><i class="fa-duotone fa-solid fa-gears"></i><span>{text.displayText('options', language)}</span></a>
+                </li>
+            )  
         }
         return affichageOptions
     }
 
-    if(!user) {
+    if(!campaign) {
         return(
             <></>
         )
@@ -41,5 +48,4 @@ export default function MenuCampagne(props) {
             </ul>
         </nav>
     )
-    
 }

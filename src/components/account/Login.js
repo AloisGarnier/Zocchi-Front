@@ -30,8 +30,8 @@ export default function Login(props) {
                     email: json.owner.email,
                 }
             )
-            navigate("/personnages")
-            location.reload();
+            navigate("/")
+            location.reload()
         } else {
             setWrongLogin(true)
         }

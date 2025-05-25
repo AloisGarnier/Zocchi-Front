@@ -1,4 +1,4 @@
-import React, {useState, createContext} from "react"
+import React, {useState, useEffect, createContext} from "react"
 
 export const ThemeContext = createContext()
 
@@ -8,9 +8,23 @@ export const ThemeProvider = ({ children }) => {
 
     const campaignUrl = domain + 'campaign/'
 
-    const [language, setLanguage] = useState(localStorage.getItem("language") ?? 'fr')
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")) ?? null)
-    const [campaign, setCampaign] = useState(JSON.parse(localStorage.getItem("campaign")) ?? null)
+    const [language, setLanguage] = useState('fr')
+    const [user, setUser] = useState(null)
+    const [campaign, setCampaign] = useState(null)
+
+    useEffect(() => init(), [])
+
+    function init() {
+        if(localStorage.getItem("language")) {
+            setLanguage(localStorage.getItem("language"))
+        }
+        if(localStorage.getItem("user") && localStorage.getItem("user") != "undefined") {
+            setUser(JSON.parse(localStorage.getItem("user")))
+        }
+        if(localStorage.getItem("campaign") && localStorage.getItem("campaign") != "undefined") {
+            setCampaign(JSON.parse(localStorage.getItem("campaign")))
+        }
+    }
 
     function changeLanguage(newLanguage) {
         setLanguage(newLanguage)
@@ -22,7 +36,7 @@ export const ThemeProvider = ({ children }) => {
         localStorage.setItem("user", JSON.stringify(newUser))
         if(!newUser) {
             changeCampaign(null)
-        } else if(localStorage.getItem("campaign") && localStorage.getItem("campaign") != "null") {
+        } else if(localStorage.getItem("campaign") && localStorage.getItem("campaign") != "undefined") {
             setCampaign(localStorage.getItem("campaign"))
         } else if(newUser) {
             fetch(campaignUrl + "byPlayer/" + newUser.id)

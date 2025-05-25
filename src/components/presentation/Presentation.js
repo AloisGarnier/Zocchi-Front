@@ -1,45 +1,35 @@
-import React, { useContext } from "react";
+import React, { useContext } from "react"
 
 import * as text from "../utils/text.js" 
-import { ThemeContext } from "../utils/context.js";
-import Card from "../utils/Card.js";
+import { ThemeContext } from "../utils/context.js"
+
+import d4 from "../../img/d4.jpg"
+import d6 from "../../img/d6.jpg"
+import d8 from "../../img/d8.jpg"
+import d10 from "../../img/d10.jpg"
+import d12 from "../../img/d12.jpg"
+import d20 from "../../img/d20.jpg"
 
 export default function Presentation(props) {
 
-    const {domain, language, changeLanguage, user, setUser} = useContext(ThemeContext)
+    const {domain, language, changeLanguage, user, setUser, campaign, setCampaign} = useContext(ThemeContext)
 
     return(
-        <Card header='welcome'>
-            <p class="card-text">{text.displayText('presentation', language)}</p>
-            <p class="card-text">&emsp;<i class="fa-solid fa-helmet-battle"></i>&emsp;{text.displayText('createchar', language)}</p>
-            <p class="card-text">&emsp;<i class="fa-solid fa-dragon"></i>&emsp;{text.displayText('foes', language)}</p>
-            <p class="card-text">&emsp;<i class="fa-solid fa-scroll-old"></i>&emsp;{text.displayText('createevent', language)}</p>
-            <p class="card-text">&emsp;<i class="fa-solid fa-treasure-chest"></i>&emsp;{text.displayText('objects', language)}</p>
-            <p class="card-text">&emsp;<i class="fa-solid fa-sword"></i>&emsp;{text.displayText('fight', language)}</p>
-            <p class="card-text">&emsp;<i class="fa-solid fa-signs-post"></i>&emsp;{text.displayText('maps', language)}</p>
-            <p class="card-text">&emsp;{text.displayText('other', language)}</p>
-            <div class="d-flex flex-row justify-content-around">
-                <div class="d-flex flex-column opt-text">
-                    {text.displayText('becomedm', language)}
-                    <button type='button' class="my-2 mx-5 btn btn-success" onClick={() => {language == 'fr' ? changeLanguage('en') : changeLanguage('fr')}}>
-                        {text.displayText('create', language)}
-                    </button>
-                </div>
-                <div class="d-flex flex-column opt-text">
-                    {text.displayText('joincampaign', language)}
-                    <button type='button' class="my-2 mx-5 btn btn-info" onClick={() => {language == 'fr' ? changeLanguage('en') : changeLanguage('fr')}}>
-                        {text.displayText('join', language)}
-                    </button>
-                </div>
-                <div class="d-flex flex-column opt-text">
-                    {text.displayText('infopricing', language)}
-                    <button type='button' class="my-2 mx-5 btn btn-danger" onClick={() => {language == 'fr' ? changeLanguage('en') : changeLanguage('fr')}}>
-                        {text.displayText('pricing', language)}
-                    </button>
-                </div>
+        <div class="d-flex flex-column align-items-center my-3">
+            <div class="pres-text my-2">{text.displayText('presentation', language)}</div>
+            <div class="d-flex flex-row align-items-center my-2">
+                <div class="d-flex flex-column align-items-center mx-3"><img class="dice-button" src={d4}></img>{text.displayText('createchar', language)}</div>
+                <div class="d-flex flex-column align-items-center mx-3"><img class="dice-button" src={d6}></img>{text.displayText('foes', language)}</div>
             </div>
-        </Card>
-                        
+            <div class="d-flex flex-row align-items-center my-2">
+                <div class="d-flex flex-column align-items-center mx-10"><img class="dice-button" src={d8}></img>{text.displayText('objects', language)}</div>
+                <div class="d-flex flex-column align-items-center mx-10"><img class="dice-button" src={d10}></img>{text.displayText('maps', language)}</div>
+            </div>
+            <div class="d-flex flex-row align-items-center my-2">
+                <div class="d-flex flex-column align-items-center mx-3"><img class="dice-button" src={d12}></img>{text.displayText('other', language)}</div>
+                <div class="d-flex flex-column align-items-center mx-3"><img class="dice-button" src={d20}></img>{text.displayText('signupjoin', language)}</div>
+            </div>
+        </div>                
     )
     
 }

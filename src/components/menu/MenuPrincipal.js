@@ -17,16 +17,16 @@ export default function MenuPrincipal(props) {
     const [campaigns, setCampaigns] = useState([])
 
     useEffect(() => fetchOwner(), [])
+    useEffect(() => fetchCampaigns(), [user])
     useEffect(() => fetchCampaigns(), [campaign])
 
     function fetchOwner() {
-        let savedUser = JSON.parse(window.localStorage.getItem("user"))
-        if(savedUser) {
+        if(window.localStorage.getItem("user") && window.localStorage.getItem("user") != "undefined") {
+            let savedUser = JSON.parse(window.localStorage.getItem("user"))
             changeUser(savedUser)
             fetchCampaigns()
-            let savedCampaign = JSON.parse(window.localStorage.getItem("campaign"))
-            if(savedCampaign) {
-                changeCampaign(savedCampaign)
+            if(window.localStorage.getItem("campaign") && window.localStorage.getItem("campaign") != "undefined") {
+                changeCampaign(JSON.parse(window.localStorage.getItem("campaign")))
             }
         }
     }
@@ -99,8 +99,8 @@ export default function MenuPrincipal(props) {
     function afficherCampagnes() {
         let campaignDisplay = []
         if(user) {
-            if(campaigns && typeof campaigns[Symbol.iterator] === 'function') {
-                for(const c of campaigns) {
+            if(campaigns && typeof campaigns[Symbol.iterator] === 'function' && campaigns.length > 0) {
+                for(let c of campaigns) {
                     if(campaign && c.code == campaign.code) {
                         campaignDisplay.push(<Dropdown.Item className="green" onClick={() => changeCampaign(c)}>{displayCampaign(c)} {badges(c)}</Dropdown.Item>)
                     } else {

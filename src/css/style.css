@@ -172,6 +172,11 @@ ul, li {
     max-width: 1000px !important;
   }
 
+  .mx-10 {
+    margin-left: 6rem !important;
+    margin-right: 6rem !important;
+  }
+
 
   /* ========== text ============== */
 
@@ -184,6 +189,11 @@ ul, li {
     text-align: center !important;
   }
 
+  .pres-text {
+    text-align: center !important;
+    text-justify: center !important;
+    max-width: 50% !important;
+  }
 
   p {
     text-align : justify !important;
@@ -201,6 +211,10 @@ ul, li {
 
   .img-icon {
     max-width: 50px !important;
+  }
+
+  .dice-button {
+    max-width : 100px !important;
   }
 
   /*=========== navbar ============= */
