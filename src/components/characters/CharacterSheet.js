@@ -11,7 +11,7 @@ export default function CharacterSheet(props) {
 
     function numField(element) {
         return(
-            <div class="d-flex flex-column align-items-center">
+            <div class="d-flex flex-column align-items-center m-2">
                 {element.label}
                 <input class="form-control numfield" />
             </div>

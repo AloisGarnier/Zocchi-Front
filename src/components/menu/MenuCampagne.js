@@ -25,7 +25,7 @@ export default function MenuCampagne(props) {
                 </li>
             )
         }
-        if(!c.characterName) {
+        if(!campaign.characterName) {
           affichageOptions.push(
                 <li class="navbar__item">
                     <a href="/options" class="navbar__link sm-width"><i class="fa-duotone fa-solid fa-gears"></i><span>{text.displayText('options', language)}</span></a>

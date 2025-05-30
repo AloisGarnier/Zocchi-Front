@@ -20,7 +20,9 @@ export default function Characters(props) {
     function processSheets(json, newSheets, index) {
         if(json) {
             for(let i=0; i<json.length; i++) {
-                newSheets.push(json[i])
+                if(json[i].name) {
+                    newSheets.push(json[i])
+                }
             }
             setSheets(newSheets) 
             setSheet(newSheets[index])

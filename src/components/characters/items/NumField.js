@@ -46,7 +46,7 @@ export default function NumField(props) {
                 id="inputDefault" 
                 onMouseDown={() => click()} 
                 onChange={event => actionOnChange(event.target.value)}
-                value="7"/>
+                value="N"/>
         </div>
     )
 }

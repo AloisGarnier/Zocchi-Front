@@ -47,11 +47,11 @@ export default function NumFieldBonus(props) {
                     id="inputDefault" 
                     onMouseDown={() => click()} 
                     onChange={event => actionOnChange(event.target.value)}
-                    value="4"/>
+                    value="N"/>
                 <input 
                     type="text"
                     class="form-control tiny-input"
-                    value="+1"
+                    value="+n"
                     id="inputDefault2"/>   
             </div>   
         </div>
