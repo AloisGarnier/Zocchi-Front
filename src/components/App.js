@@ -20,6 +20,7 @@ import Login from "./account/Login.js"
 import JoinCampaign from "./account/JoinCampaign.js"
 import NewCampaign from "./account/NewCampaign.js"
 import CampaignOptions from "./campaign/CampaignOptions.js"
+import Index from "./index/Index.js"
 
 export default function App() {
 
@@ -42,6 +43,7 @@ export default function App() {
           <Routes>
             <Route exact path="/" element={<Presentation/>}/>
             <Route exact path="/personnages" element={<Characters/>}/>
+            <Route exact path="/index" element={<Index/>}/>
             <Route exact path="/lieux" element={<Maps/>}/>
             <Route exact path="/connexion" element={<Login/>}/>
             <Route exact path="/rejoindre-campagne" element={<JoinCampaign/>}/>

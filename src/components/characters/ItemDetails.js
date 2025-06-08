@@ -2,6 +2,15 @@ import React, { useContext } from "react"
 import { ThemeContext } from "../utils/context.js"
 
 import * as text from "../utils/text.js" 
+import LabelDetails from "./itemdetails/LabelDetails.js"
+import NumFieldDetails from "./itemdetails/NumFieldDetails.js"
+import NumFieldBonusDetails from "./itemdetails/NumFieldBonusDetails.js"
+import TextFieldDetails from "./itemdetails/TextFieldDetails.js"
+import NumFieldOverDetails from "./itemdetails/NumFieldOverDetails.js"
+import FormulaDetails from "./itemdetails/FormulaDetails.js"
+import LargeTextFieldDetails from "./itemdetails/LargeTextFieldDetails.js"
+import SimpleListDetails from "./itemdetails/SimpleListDetails.js"
+import ItemListDetails from "./itemdetails/ItemListDetails.js"
 
 export default function ItemDetails(props) {
 
@@ -17,91 +26,67 @@ export default function ItemDetails(props) {
             switch(props.selected.type) {
                 case "label":
                     return(
-                        <div class="d-flex flex-column">
-                            <div class="d-flex flex-row justify-content-between align-items-center">
-                                {text.displayText('label', language) + " :"}
-                                <input 
-                                    type="text" 
-                                    class="form-control square-3-nd" 
-                                    id="inputDefault" 
-                                    onChange={event => actionOnChange(event.target.value)}
-                                    value={props.selected.label}/>
-                            </div>
-                        </div>
+                        <LabelDetails 
+                            actionOnChange={actionOnChange}
+                            selected={props.selected}
+                        />
                     )
                 case "numfield":
                     return(
-                        <div class="d-flex flex-column">
-                            <div class="d-flex flex-row justify-content-between align-items-center">
-                                {text.displayText('fieldname', language) + " :"}
-                                <input 
-                                    type="text" 
-                                    class="form-control square-3-nd" 
-                                    id="inputDefault" 
-                                    onChange={event => actionOnChange(event.target.value)}
-                                    value={props.selected.label}/>
-                            </div>
-                            <fieldset class="d-flex flex-row my-2">
-                                {text.displayText('nameposition', language) + " :"}
-                                <div class="form-check mx-2">
-                                    <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>
-                                    <label class="form-check-label" for="optionsRadios1">
-                                    {text.displayText('top', language)}
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>
-                                    <label class="form-check-label" for="optionsRadios2">
-                                    {text.displayText('left', language)}
-                                    </label>
-                                </div>
-                            </fieldset>
-                        </div>
+                        <NumFieldDetails 
+                            actionOnChange={actionOnChange}
+                            selected={props.selected}
+                        />
                     )
                 case "numfieldbonus":
                     return(
-                        <div class="d-flex flex-column">
-                            <div class="d-flex flex-row justify-content-between align-items-center">
-                                {text.displayText('fieldname', language) + " :"}
-                                <input 
-                                    type="text" 
-                                    class="form-control square-3-nd" 
-                                    id="inputDefault" 
-                                    onChange={event => actionOnChange(event.target.value)}
-                                    value={props.selected.label}/>
-                            </div>
-                            <fieldset class="d-flex flex-row my-2">
-                                {text.displayText('nameposition', language) + " :"}
-                                <div class="form-check mx-2">
-                                    <input class="form-check-input" type="radio" name="nameRadios" id="optionsRadios1" value="option1"/>
-                                    <label class="form-check-label" for="optionsRadios1">
-                                    {text.displayText('top', language)}
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="nameRadios" id="optionsRadios2" value="option2"/>
-                                    <label class="form-check-label" for="optionsRadios2">
-                                    {text.displayText('left', language)}
-                                    </label>
-                                </div>
-                            </fieldset>
-                            <fieldset class="d-flex flex-row my-2">
-                                {text.displayText('bonusposition', language) + " :"}
-                                <div class="form-check mx-2">
-                                    <input class="form-check-input" type="radio" name="bonusRadios" id="optionsRadios1" value="option1"/>
-                                    <label class="form-check-label" for="optionsRadios1">
-                                    {text.displayText('bottom', language)}
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="bonusRadios" id="optionsRadios2" value="option2"/>
-                                    <label class="form-check-label" for="optionsRadios2">
-                                    {text.displayText('right', language)}
-                                    </label>
-                                </div>
-                            </fieldset>
-                        </div>
+                        <NumFieldBonusDetails 
+                            actionOnChange={actionOnChange}
+                            selected={props.selected}
+                        />
                     )
+                case "numfieldover":
+                    return(
+                        <NumFieldOverDetails 
+                            actionOnChange={actionOnChange}
+                            selected={props.selected}
+                        />
+                    )
+                case "formula":
+                    return(
+                        <FormulaDetails 
+                            actionOnChange={actionOnChange}
+                            selected={props.selected}
+                        />
+                    )
+                case "textfield":
+                    return(
+                        <TextFieldDetails 
+                            actionOnChange={actionOnChange}
+                            selected={props.selected}
+                        />
+                    )
+                case "largetextfield":
+                    return(
+                        <LargeTextFieldDetails 
+                            actionOnChange={actionOnChange}
+                            selected={props.selected}
+                        />
+                    )  
+                case "simplelist":
+                    return(
+                        <SimpleListDetails 
+                            actionOnChange={actionOnChange}
+                            selected={props.selected}
+                        />
+                    )  
+                case "itemlist":
+                    return(
+                        <ItemListDetails 
+                            actionOnChange={actionOnChange}
+                            selected={props.selected}
+                        />
+                    )  
                 default:
                     break
             }
@@ -110,7 +95,7 @@ export default function ItemDetails(props) {
     
     return (
         <div class="card border-primary mb-3 store">
-            <div class="card-body">
+            <div class="card-body overflow-scroll">
                 <h4 class="card-title">{text.displayText('details', language)}</h4>
                 {form()}
             </div>

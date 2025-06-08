@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react"
 import { ThemeContext } from "../utils/context.js"
 
 import * as text from "../utils/text.js" 
+import Table from "../utils/Table.js"
 
 export default function CampaignOptions(props) {
 
@@ -10,7 +11,20 @@ export default function CampaignOptions(props) {
     const [name, setName] = useState("")
     useEffect(() => setName(campaign ? campaign.name : ""), [campaign])
 
+    const [chars, setChars] = useState([])
+    const [isChanged, setIsChanged] = useState(false)
+    useEffect(() => fetchChars(), [campaign, isChanged])
+
     const backUrl = domain + "campaign/"
+    const charUrl = domain + "charsheet/"
+
+    function fetchChars() {
+        if(campaign) {
+            fetch(charUrl + "campaign/" + campaign.id)
+                .then(response => response.json())
+                .then(json => setChars(json))
+        }
+    }
 
     function updateCampaign() {
         fetch(backUrl + "byId/" + campaign.id + "/" + user.id)
@@ -30,6 +44,35 @@ export default function CampaignOptions(props) {
         }
     }
 
+    function deleteChar(id) {
+        const requestOptions = {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+            }
+            fetch(charUrl + "delete/" + id, requestOptions)
+                .then(() => setIsChanged(bool => !bool))
+    }
+
+    function deleteButton(char) {
+        if(char.name) {
+            return(
+                <a type='button' onClick={() => deleteChar(char.id)}>
+                    <i class="fa-solid fa-trash-xmark justify-self-center" style={{color: "#EE0000",}} />
+                </a>
+            )
+        }
+    }
+
+    function characterData() {
+        if(chars) {
+            let dataDisplay = []
+            for(let i=0; i<chars.length; i++) {
+                dataDisplay.push([chars[i].player, chars[i].name ?? text.displayText('dungeonmaster', language), deleteButton(chars[i])])
+            }
+            return dataDisplay
+        }
+    }
+
     return(
         <div class="d-flex flex-column align-items-center">
             <div class="mb-3">
@@ -39,6 +82,10 @@ export default function CampaignOptions(props) {
                 <input class="form-control" id="floatingInput" value={name} onChange={event => modifyName(event.target.value)}/>
                 <label for="floatingInput">{text.displayText('campaignname', language)}</label>
             </div>
+            <Table 
+                heading={[text.displayText('player', language), text.displayText('character', language), ""]}
+                data={characterData()}
+            />
         </div>
     )
 }

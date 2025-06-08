@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react"
 import { ThemeContext } from "../utils/context";
 
 import * as text from "../utils/text.js" 
-import Card from "../utils/Card.js";
 import { useNavigate } from "react-router-dom";
 
 export default function Login(props) {

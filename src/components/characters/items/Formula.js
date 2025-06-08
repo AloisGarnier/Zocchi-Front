@@ -6,7 +6,7 @@ import * as text from "../../utils/text.js"
 import { useDraggable } from "@dnd-kit/core"
 import {CSS} from '@dnd-kit/utilities';
 
-export default function NumField(props) {
+export default function Formula(props) {
 
     const {domain, language, changeLanguage, user, changeUser} = useContext(ThemeContext)
 
@@ -21,18 +21,18 @@ export default function NumField(props) {
 
     function actionOnChange(newValue) {
         if(props.label) {
-            props.onChange({x:props.label.x, y:props.label.y, id:props.label.id, type:"numfield", label:newValue}, null)
+            props.onChange({x:props.label.x, y:props.label.y, id:props.label.id, type:"formula", label:newValue}, null)
         }
     }
 
     function click() {
         props.onClick(
             {
-               type:"numfield",
+               type:"formula",
                value:"",
                height:1,
                length:1,
-               id:"newNumField"     
+               id:"newFormula"     
             }
         )
     }
@@ -45,12 +45,12 @@ export default function NumField(props) {
         <div ref={setNodeRef} style={style} {...listeners} {...attributes}>
             <input 
                 type="text"
-                title={text.displayText('numfieldtooltip', language)} 
+                title={text.displayText('formulatooltip', language)} 
                 class={className()}
                 id="inputDefault" 
                 onMouseDown={() => click()} 
                 onChange={event => actionOnChange(event.target.value)}
-                value="N"/>
+                value="X"/>
         </div>
     )
 }

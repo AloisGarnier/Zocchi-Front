@@ -31,10 +31,14 @@ export default function Label(props) {
                type:"label",
                value:"",
                height:1,
-               length:3,
+               length:2,
                id:"newLabel"     
             }
         )
+    }
+
+    function className() {
+        return "form-control my-label" + (props.isSelected ? " blue" : "")
     }
     
     return (
@@ -42,7 +46,7 @@ export default function Label(props) {
             <input 
                 type="text" 
                 title={text.displayText('labeltooltip', language)} 
-                class="form-control my-label" 
+                class={className()}
                 id="inputDefault" 
                 onMouseDown={() => click()} 
                 onChange={event => actionOnChange(event.target.value)}

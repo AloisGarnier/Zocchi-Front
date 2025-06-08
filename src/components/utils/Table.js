@@ -11,7 +11,7 @@ export default function Table(props) {
         let headingDisplay = props.heading.map((h) => <th scope="col">{h}</th>)
         return(
             <thead>
-                <tr>
+                <tr class="table-active">
                     {headingDisplay}
                 </tr>
             </thead>
@@ -20,8 +20,8 @@ export default function Table(props) {
 
     function data() {
         let dataDisplay = []
-        for(let row in props.data) {
-            let rowDisplay = row.map((r) => <td>{r}</td>)
+        for(let i=0; i< props.data.length; i++) {
+            let rowDisplay = props.data[i].map((r) => <td>{r}</td>)
             dataDisplay.push(
                 <tr class="table-light">
                     {rowDisplay}

@@ -6,7 +6,7 @@ import * as text from "../../utils/text.js"
 import { useDraggable } from "@dnd-kit/core"
 import {CSS} from '@dnd-kit/utilities';
 
-export default function NumFieldBonus(props) {
+export default function NumFieldOver(props) {
 
     const {domain, language, changeLanguage, user, changeUser} = useContext(ThemeContext)
 
@@ -21,18 +21,18 @@ export default function NumFieldBonus(props) {
 
     function actionOnChange(newValue) {
         if(props.label) {
-            props.onChange({x:props.label.x, y:props.label.y, id:props.label.id, type:"numfieldbonus", label:newValue}, null)
+            props.onChange({x:props.label.x, y:props.label.y, id:props.label.id, type:"numfieldover", label:newValue}, null)
         }
     }
 
     function click() {
         props.onClick(
             {
-               type:"numfieldbonus",
+               type:"numfieldover",
                value:"",
                height:1,
-               length:1,
-               id:"newNumFieldBonus"     
+               length:2,
+               id:"newNumFieldOver"     
             }
         )
     }
@@ -41,26 +41,30 @@ export default function NumFieldBonus(props) {
         return "form-control numfield" + (props.isSelected ? " blue" : "")
     }
 
-    function classNameTiny() {
-        return "form-control tiny-input" + (props.isSelected ? " blue" : "")
+    function classNameSlash() {
+        return "mx-1" + (props.isSelected ? " blue" : "")
     }
     
     return (
         <div ref={setNodeRef} style={style} {...listeners} {...attributes}>
-            <div class="d-flex flex-column align-items-center">
+            <div class="d-flex flex-row align-items-center">
                 <input 
                     type="text"
-                    title={text.displayText('numfieldbonustooltip', language)} 
+                    title={text.displayText('numfieldovertooltip', language)} 
                     class={className()}
                     id="inputDefault" 
                     onMouseDown={() => click()} 
                     onChange={event => actionOnChange(event.target.value)}
                     value="N"/>
+                <div class={classNameSlash()}>/</div>
                 <input 
                     type="text"
-                    class={classNameTiny()}
-                    value="+n"
-                    id="inputDefault2"/>   
+                    title={text.displayText('numfieldovertooltip', language)} 
+                    class={className()}
+                    id="inputDefault" 
+                    onMouseDown={() => click()} 
+                    onChange={event => actionOnChange(event.target.value)}
+                    value="M"/>  
             </div>   
         </div>
     )

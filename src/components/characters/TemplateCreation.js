@@ -2,15 +2,20 @@ import React, { useContext, useState, useEffect } from "react"
 import { ThemeContext } from "../utils/context.js"
 
 import * as text from "../utils/text.js" 
-import { DndContext } from "@dnd-kit/core";
-import SheetPortion from "./SheetPortion.js";
-import Label from "./items/Label.js";
-import Trash from "./Trash.js";
-import ItemStore from "./ItemStore.js";
-import ItemDetails from "./ItemDetails.js";
-import NumField from "./items/Numfield.js";
-import NumFieldBonus from "./items/Numfieldbonus.js";
-import TextField from "./items/TextField.js";
+import { DndContext } from "@dnd-kit/core"
+import SheetPortion from "./SheetPortion.js"
+import Label from "./items/Label.js"
+import Trash from "./Trash.js"
+import ItemStore from "./ItemStore.js"
+import ItemDetails from "./ItemDetails.js"
+import NumField from "./items/Numfield.js"
+import NumFieldBonus from "./items/Numfieldbonus.js"
+import TextField from "./items/TextField.js"
+import NumFieldOver from "./items/NumFieldOver.js"
+import LargeTextField from "./items/LargeTextField.js"
+import SimpleList from "./items/SimpleList.js"
+import ItemList from "./items/ItemList.js"
+import Formula from "./items/Formula.js"
 
 export default function TemplateCreation(props) {
 
@@ -50,7 +55,7 @@ export default function TemplateCreation(props) {
             } 
 
             // Add, modify
-            let x_num, y_num, x, y, type, value, id, options
+            let x_num, y_num, x, y, type, value, id
             if(over) {
                 x_num = parseInt(over.id.split(":")[1])
                 y_num = parseInt(over.id.split(":")[0])
@@ -62,31 +67,32 @@ export default function TemplateCreation(props) {
             x = x_num + "/"
             y = y_num + "/"
             type = selected.type + "/"
-            value = selected.label != "" ? selected.label + "/" : "empty/"
+            value = selected.label != "" ? selected.label : "empty"
             id = selected.id + "/"
-            options = selected.options != "" ? selected.options : "empty"
 
-            // Si le label dépasse de la taille de la feuille, ne pas bouger
+            // Si le label dépasse de la taille de la feuille, décaler à gauche
             if(x_num + selected.length > width) {
-                return
+                x_num -= (x_num + selected.length - width)
+                x = x_num + "/"
             }
 
             if(selected.id.toString().includes("new")) {
                 type = selected.id.toString().substring(3).toLowerCase() + "/"
                 value = "empty/"
-                options = "empty"
                 const requestOptions = {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
                 }
-                fetch(sheetUrl + "add/" + type + x + y + value + campaign.templateId + "/" + options, requestOptions)
+                fetch(sheetUrl + "add/" + type + x + y + value + campaign.templateId, requestOptions)
                     .then(() => fetchLabels())
             } else {
                 const requestOptions = {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
                 }
-                fetch(sheetUrl + "modify/" + type + id + x + y + value + options, requestOptions)
+                fetch(sheetUrl + "modify/" + id + x + y + value, requestOptions)
                     .then(() => fetchLabels())
             }
         }
@@ -113,25 +119,64 @@ export default function TemplateCreation(props) {
                             id={x+":"+y}
                             label={labels[i]}
                             onClick={() => setSelected(labels[i])} 
-                            onChange={modifyItem}/>
+                            onChange={modifyItem}
+                            isSelected={selected && selected.x == x && selected.y == y}/>
                     case "numfield":
                         return <NumField
                             id={x+":"+y}
                             label={labels[i]}
                             onClick={() => setSelected(labels[i])} 
-                            onChange={modifyItem}/>
+                            onChange={modifyItem}
+                            isSelected={selected && selected.x == x && selected.y == y}/>
                     case "numfieldbonus":
                         return <NumFieldBonus
                             id={x+":"+y}
                             label={labels[i]}
                             onClick={() => setSelected(labels[i])} 
-                            onChange={modifyItem}/>
+                            onChange={modifyItem}
+                            isSelected={selected && selected.x == x && selected.y == y}/>
+                    case "numfieldover":
+                        return <NumFieldOver
+                            id={x+":"+y}
+                            label={labels[i]}
+                            onClick={() => setSelected(labels[i])} 
+                            onChange={modifyItem}
+                            isSelected={selected && selected.x == x && selected.y == y}/>
+                    case "formula":
+                        return <Formula
+                            id={x+":"+y}
+                            label={labels[i]}
+                            onClick={() => setSelected(labels[i])} 
+                            onChange={modifyItem}
+                            isSelected={selected && selected.x == x && selected.y == y}/>
                     case "textfield":
                         return <TextField
                             id={x+":"+y}
                             label={labels[i]}
                             onClick={() => setSelected(labels[i])} 
-                            onChange={modifyItem}/>
+                            onChange={modifyItem}
+                            isSelected={selected && selected.x == x && selected.y == y}/>
+                    case "largetextfield":
+                        return <LargeTextField
+                            id={x+":"+y}
+                            label={labels[i]}
+                            onClick={() => setSelected(labels[i])} 
+                            onChange={modifyItem}
+                            isSelected={selected && selected.x == x && selected.y == y}/>
+                    case "simplelist":
+                        return <SimpleList
+                            id={x+":"+y}
+                            label={labels[i]}
+                            onClick={() => setSelected(labels[i])} 
+                            onChange={modifyItem}
+                            isSelected={selected && selected.x == x && selected.y == y}/>
+                    case "itemlist":
+                        return <ItemList
+                            id={x+":"+y}
+                            label={labels[i]}
+                            onClick={() => setSelected(labels[i])} 
+                            onChange={modifyItem}
+                            isSelected={selected && selected.x == x && selected.y == y}/>
                     default:
                         break
                 }

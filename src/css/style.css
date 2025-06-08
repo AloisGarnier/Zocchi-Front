@@ -155,6 +155,10 @@ ul, li {
     color : grey !important;
   }
 
+  .black {
+    color: black !important;
+  }
+
   .same-size {
     min-width: 30%!important;
   }
@@ -230,6 +234,21 @@ ul, li {
     border: transparent !important;
   }
 
+    /*=========== items ============= */
+
+    .sm-input {
+      width: 75px !important;
+      height: 20px !important;
+      margin: 0 !important;
+    }
+
+    .sm-btn {
+      width: 20px !important;
+      height: 20px !important;
+      padding: 0 !important;
+      border: none !important;
+    }
+
     /*=========== sheets & maps ============= */
 
     .min-hw {
@@ -238,17 +257,44 @@ ul, li {
     }
 
     .store {
-      width: 300px !important;
-      height: 250px !important;
+      width: 350px !important;
+      height: 275px !important;
     }
 
     .numfield {
       width: 40px !important;
       height: 40px !important;
+      border: solid !important;
     }
 
     .my-label {
-      border: none !important;
+      border: 0.25rem solid !important;
+      width: 102px !important;
+    }
+
+    .my-textfield {
+      border: solid !important;
+      width: 102px !important;
+    }
+
+    .my-largetextfield {
+      border: solid !important;
+      width: 154px !important;
+      height: 55px !important
+    }
+
+    .largetextfieldmovable {
+      border: solid !important;
+    }
+
+    .my-icontable {
+      border: solid !important;
+      width: 51px !important;
+      height: 27px !important;
+    }
+
+    .b-solid {
+      border: solid !important;
     }
 
     .tiny-input {
@@ -256,6 +302,7 @@ ul, li {
       height: 20px !important;
       margin-top: -10px !important;
       padding: 0 !important;
+      border: solid !important;
    }
 
     .select-dropdown {
@@ -304,8 +351,51 @@ ul, li {
       border: dashed !important;
     }
 
+    .square-6 {
+      width: 310px !important;
+      height: 50px !important;
+      margin: 1px !important;
+      border: dashed !important;
+    }
+
+    .square-7 {
+      width: 362px !important;
+      height: 50px !important;
+      margin: 1px !important;
+      border: dashed !important;
+    }
+
+    .square-8 {
+      width: 414px !important;
+      height: 50px !important;
+      margin: 1px !important;
+      border: dashed !important;
+    }
+
+    .square-9 {
+      width: 466px !important;
+      height: 50px !important;
+      margin: 1px !important;
+      border: dashed !important;
+    }
+
+    .square-10 {
+      width: 518px !important;
+      height: 50px !important;
+      margin: 1px !important;
+      border: dashed !important;
+    }
+
     .z1000 {
       z-index: 10000 !important;
+    }
+
+    .input-justify-center {
+      text-align: center !important; 
+    }
+
+    .overflow-scroll {
+      overflow: scroll !important;
     }
 
     /*============ vertical line ============ */

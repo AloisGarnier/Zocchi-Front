@@ -21,7 +21,7 @@ export default function TextField(props) {
 
     function actionOnChange(newValue) {
         if(props.label) {
-            props.onChange({x:props.label.x, y:props.label.y, id:props.label.id, type:"numfield", label:newValue}, null)
+            props.onChange({x:props.label.x, y:props.label.y, id:props.label.id, type:"textfield", label:newValue}, null)
         }
     }
 
@@ -31,10 +31,14 @@ export default function TextField(props) {
                type:"textfield",
                value:"",
                height:1,
-               length:1,
+               length:2,
                id:"newTextField"     
             }
         )
+    }
+
+    function className() {
+        return "form-control my-textfield" + (props.isSelected ? " blue" : "")
     }
     
     return (
@@ -42,11 +46,11 @@ export default function TextField(props) {
             <input 
                 type="text"
                 title={text.displayText('texttofill', language)} 
-                class="form-control" 
+                class={className()}
                 id="inputDefault" 
                 onMouseDown={() => click()} 
                 onChange={event => actionOnChange(event.target.value)}
-                value={text.displayText('textfieldtooltip', language)}/>
+                value={text.displayText('textfield', language)}/>
         </div>
     )
 }
