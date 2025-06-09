@@ -27,14 +27,17 @@ export default function LabelDetails(props) {
             <OptionRadio 
                 title="size"
                 options={["small", "medium", "large"]}
+                selected={props.selected}
             />
             <OptionRadio 
                 title="position"
                 options={["left", "center", "right"]}
+                selected={props.selected}
             />
             <OptionRadio 
                 title="visibility"
-                options={["onlyme", "playertoo", "everybody"]}
+                options={["gamemasteronly", "gamemasterandplayer", "everybody"]}
+                selected={props.selected}
             />
         </div>
     )

@@ -75,12 +75,13 @@ export default function CampaignOptions(props) {
 
     return(
         <div class="d-flex flex-column align-items-center">
-            <div class="mb-3">
-                {text.displayText('code', language) + " : " + (campaign ? campaign.code : "")}
+            <div class="form-floating mb-3">
+                <input class="form-control" id="floatingInput" value={campaign ? campaign.code : ""}/>
+                <label for="floatingInput">{text.displayText('code', language)}</label>
             </div>
             <div class="form-floating mb-3">
-                <input class="form-control" id="floatingInput" value={name} onChange={event => modifyName(event.target.value)}/>
-                <label for="floatingInput">{text.displayText('campaignname', language)}</label>
+                <input class="form-control" id="floatingInput2" value={name} onChange={event => modifyName(event.target.value)}/>
+                <label for="floatingInput2">{text.displayText('campaignname', language)}</label>
             </div>
             <Table 
                 heading={[text.displayText('player', language), text.displayText('character', language), ""]}

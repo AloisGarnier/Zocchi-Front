@@ -3,7 +3,6 @@ import React from "react"
 import {Route, Routes, Navigate} from "react-router-dom"
 
 import "../css/style.css"
-//import "../css/solar.css"
 import "../css/sketchy.css"
 import "../css/all.min.css"
 import "../css/duotone.min.css"

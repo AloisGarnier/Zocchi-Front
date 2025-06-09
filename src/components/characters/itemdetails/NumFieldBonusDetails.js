@@ -27,14 +27,17 @@ export default function NumFieldBonusDetails(props) {
             <OptionRadio 
                 title="nameposition"
                 options={["top", "left"]}
+                selected={props.selected}
             />
             <OptionRadio 
                 title="bonusposition"
                 options={["bottom", "right"]}
+                selected={props.selected}
             />
             <OptionRadio 
                 title="visibility"
-                options={["onlyme", "playertoo", "everybody"]}
+                options={["gamemasteronly", "gamemasterandplayer", "everybody"]}
+                selected={props.selected}
             />
         </div>
     )

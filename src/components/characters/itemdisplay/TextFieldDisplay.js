@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { ThemeContext } from "../../utils/context.js"
 
 import * as text from "../../utils/text.js"
@@ -15,6 +15,14 @@ export default function TextFieldDisplay(props) {
     const backUrl = domain + 'charsheet/'
 
     const [value, setValue] = useState("")
+
+    useEffect(() => fetchInitialValue(), [])
+
+    function fetchInitialValue() {
+        fetch(backUrl + "getValues/" + props.character.id + "/" + props.element.id + "/" )
+            .then(response => response.json())
+            .then(json => setValue(json.value))
+    }
 
     function processValue(newValue) {
         const requestOptions = {
