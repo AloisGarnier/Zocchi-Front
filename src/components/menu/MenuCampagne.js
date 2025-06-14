@@ -28,7 +28,10 @@ export default function MenuCampagne(props) {
         if(!campaign.characterName) {
           affichageOptions.push(
                 <li class="navbar__item">
-                    <a href="/options" class="navbar__link sm-width"><i class="fa-duotone fa-solid fa-gears"></i><span>{text.displayText('options', language)}</span></a>
+                    <a href="/options" class="navbar__link sm-width">
+                        <i class="fa-duotone fa-solid fa-gears"></i>
+                        <span>{text.displayText('options', language)}</span>
+                    </a>
                 </li>
             )  
         }
@@ -36,9 +39,7 @@ export default function MenuCampagne(props) {
     }
 
     if(!campaign) {
-        return(
-            <></>
-        )
+        return
     }
 
     return(

@@ -15,13 +15,21 @@ export default function TextFieldDisplay(props) {
     const backUrl = domain + 'charsheet/'
 
     const [value, setValue] = useState("")
+    const [options, setOptions] = useState({})
 
-    useEffect(() => fetchInitialValue(), [])
+    useEffect(() => fetchInitialValues(), [])
 
-    function fetchInitialValue() {
-        fetch(backUrl + "getValues/" + props.character.id + "/" + props.element.id + "/" )
-            .then(response => response.json())
-            .then(json => setValue(json.value))
+    function processJson(json) {
+        setValue(json.value)
+        setOptions(json.element.options)
+    }
+
+    function fetchInitialValues() {
+        if(props.character && props.element) {
+            fetch(backUrl + "getValues/" + props.character.id + "/" + props.element.id + "/" )
+                .then(response => response.json())
+                .then(json => processJson(json))
+        }
     }
 
     function processValue(newValue) {
@@ -33,10 +41,47 @@ export default function TextFieldDisplay(props) {
             .then(() => setValue(newValue))
     }
 
+    function treatPosition() {
+        switch(options.position) {
+            case "TOP":
+                return(
+                    <div class="d-flex flex-column align-items-center m-2">
+                        <div>{props.element.label}</div>
+                        <input class="form-control my-textfield" value={value} onChange={event => processValue(event.target.value)}/>
+                    </div>
+                )
+            case "LEFT":
+                return(
+                    <div class="d-flex flex-row align-items-center m-2">
+                        <div class="mx-1">{props.element.label}</div>
+                        <input class="form-control my-textfield mx-1" value={value} onChange={event => processValue(event.target.value)}/>
+                    </div>
+                )
+            default:
+                break
+        }
+    }
+
+    function treatVisibility() {
+        switch(options.visibility) {
+            case "EVERYBODY":
+                return treatPosition()
+            case "GAMEMASTERANDPLAYER":
+                if(!campaign.characterName || campaign.characterId == props.character.id) {
+                    return treatPosition()
+                }
+                break
+            case "GAMEMASTERONLY":
+                if(!campaign.characterName) {
+                    return treatPosition()
+                }
+                break
+            default:
+                break
+        }
+    }
+
     return(
-        <div class="d-flex flex-column align-items-center m-2">
-            {props.element.label}
-            <input class="form-control my-textfield" value={value} onChange={event => processValue(event.target.value)}/>
-        </div>
+        treatVisibility()
     )
 }

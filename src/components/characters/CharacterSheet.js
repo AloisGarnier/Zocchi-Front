@@ -36,21 +36,21 @@ export default function CharacterSheet(props) {
             if(element.x == x && element.y == y) {
                 switch(element.type) {
                     case "label":
-                        return <LabelDisplay element={element}/>
+                        return <LabelDisplay character={props.sheet} element={element}/>
                     case "numfield":
-                        return <NumFieldDisplay element={element}/>
+                        return <NumFieldDisplay character={props.sheet} element={element}/>
                     case "numfieldbonus":
-                        return <NumFieldBonusDisplay element={element}/>
+                        return <NumFieldBonusDisplay character={props.sheet} element={element}/>
                     case "numfieldover":
-                        return <NumFieldOverDisplay element={element}/>
+                        return <NumFieldOverDisplay character={props.sheet} element={element}/>
                     case "formula":
-                        return <FormulaDisplay element={element}/>
+                        return <FormulaDisplay character={props.sheet} element={element}/>
                     case "textfield":
                         return <TextFieldDisplay character={props.sheet} element={element}/>
                     case "largetextfield":
-                        return <LargeTextFieldDisplay element={element}/>
+                        return <LargeTextFieldDisplay character={props.sheet} element={element}/>
                     case "simplelist":
-                        return <SimpleListDisplay element={element}/>
+                        return <SimpleListDisplay character={props.sheet} element={element}/>
                     case "itemlist":
                     default:
                         break

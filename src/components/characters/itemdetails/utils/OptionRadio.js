@@ -25,11 +25,14 @@ export default function OptionRadio(props) {
                 setChoice(json.size)
                 break
             case "position":
+            case "nameposition":
                 setChoice(json.position)
                 break
             case "visibility":
                 setChoice(json.visibility)
                 break
+            case "bonusposition":
+                setChoice(json.bonusposition)
             default:
                 break
         }
@@ -46,9 +49,12 @@ export default function OptionRadio(props) {
             case "size":
                 return {size: value}
             case "position":
+            case "nameposition":
                 return {position: value}
             case "visibility":
-                return {visibility : value}
+                return {visibility: value}
+            case "bonusposition":
+                return {bonusposition: value}
             default:
                 break
         }

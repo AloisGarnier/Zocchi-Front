@@ -26,16 +26,20 @@ export default function SimpleListDetails(props) {
             .then(json => setCategories(json))
     }
 
+    function changeCategory(newId) {
+
+    }
+
     function categoryDropdown() {
         let options = []
         for(let i=0; i<categories.length; i++) {
             options.push(
-                <option value={i}>{categories[i].name}</option>
+                <option value={categories[i].id}>{categories[i].name}</option>
             )
         }
 
         return(
-            <select class="form-select select-dropdown my-1 square-3-nd" onChange={(event) => true}>
+            <select class="form-select select-dropdown my-1 square-3-nd" onChange={event => changeCategory(event.target.value)}>
                 {options}
             </select>
         )

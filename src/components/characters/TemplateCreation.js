@@ -79,10 +79,15 @@ export default function TemplateCreation(props) {
             if(selected.id.toString().includes("new")) {
                 type = selected.id.toString().substring(3).toLowerCase() + "/"
                 value = "empty/"
+                console.log(type)
                 const requestOptions = {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({})
+                    body: JSON.stringify({visibility: "EVERYBODY", 
+                        editability: "EVERYBODY", 
+                        size: "MEDIUM",
+                        position: (type == "label/" ? "LEFT" : "TOP"),
+                        bonusposition: "BOTTOM"})
                 }
                 fetch(sheetUrl + "add/" + type + x + y + value + campaign.templateId, requestOptions)
                     .then(() => fetchLabels())
