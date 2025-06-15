@@ -2,7 +2,7 @@ import React from "react";
 
 let texts = {}
 
-texts.title = ["Zocchi", "Zocchi"]
+texts.title = ["Bières et Pizzas", "Beers and Pretzels"]
 texts.charSheet = ["Fiche de personnage", "Character sheet"]
 // Presentation
 texts.createchar = ["Fiches de personnage", "Character sheets"]
@@ -21,6 +21,7 @@ texts.campaigns = ["Mes campagnes", "My campaigns"]
 texts.newcampaign = ["Nouvelle campagne", "New campaign"]
 texts.joincampaign = ["Rejoindre une campagne", "Join campaign"]
 texts.accountparam = ["Paramètres de compte", "Account options"]
+texts.connectioninscription = ["Connexion / Inscription", "Log in / Sign up"]
 texts.connection = ["Connexion", "Log in"]
 texts.accountcreate = ["Créer un compte", "Sign up"]
 texts.deconnexion = ["Déconnexion", "Log out"]

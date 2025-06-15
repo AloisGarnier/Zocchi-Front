@@ -22,6 +22,12 @@ html {
 
 }
 
+/*=========== other (legal, help, etc.) =============*/
+
+.my-card {
+  max-width: 75%;
+}
+
 /*=========== content =============*/
 
 .my-main-content {
@@ -217,8 +223,17 @@ ul, li {
     max-width: 50px !important;
   }
 
-  .dice-button {
+  /* mainmenu */
+  .dice {
     max-width : 100px !important;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    -webkit-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+  }
+  .dice:hover {
+	  -webkit-transform: rotate(360deg);
+	  transform: rotate(360deg);
   }
 
   /*=========== navbar ============= */
@@ -318,6 +333,11 @@ ul, li {
     .select-dropdown {
       width: 258px !important;
       height: 50px !important;
+    }
+
+    .sm-select {
+      width: 50px !important;
+      height: 30px !important;
     }
 
     .square, .square-1 {

@@ -1,16 +1,16 @@
 import React, { useContext } from "react"
 import { ThemeContext } from "../utils/context.js"
-import Label from "./items/Label.js"
+import Label from "./itemcreate/Label.js"
 
 import * as text from "../utils/text.js" 
-import NumField from "./items/Numfield.js"
-import NumFieldBonus from "./items/Numfieldbonus.js"
-import TextField from "./items/TextField.js"
-import NumFieldOver from "./items/NumFieldOver.js"
-import SimpleList from "./items/SimpleList.js"
-import Formula from "./items/Formula.js"
-import ItemList from "./items/ItemList.js"
-import LargeTextField from "./items/LargeTextField.js"
+import NumField from "./itemcreate/Numfield.js"
+import NumFieldBonus from "./itemcreate/Numfieldbonus.js"
+import TextField from "./itemcreate/TextField.js"
+import NumFieldOver from "./itemcreate/NumFieldOver.js"
+import SimpleList from "./itemcreate/SimpleList.js"
+import Formula from "./itemcreate/Formula.js"
+import ItemList from "./itemcreate/ItemList.js"
+import LargeTextField from "./itemcreate/LargeTextField.js"
 
 
 export default function ItemStore(props) {

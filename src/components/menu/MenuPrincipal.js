@@ -140,7 +140,7 @@ export default function MenuPrincipal(props) {
         }
 
         return(
-            <a type="button" class="btn btn-dark" href="/connexion">{text.displayText('connection', language)}</a>
+            <a type="button" class="btn btn-dark" href="/connexion">{text.displayText('connectioninscription', language)}</a>
         )
     }
 

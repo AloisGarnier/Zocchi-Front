@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react"
 import { ThemeContext } from "../../utils/context.js"
 
-import * as text from "../../utils/text.js" 
+import LibelleInput from "./utils/LibelleInput.js"
 import OptionRadio from "./utils/OptionRadio.js"
+import CategoryDropdown from "./utils/CategoryDropdown.js"
 
 /**
  * 
@@ -13,49 +14,15 @@ export default function ItemListDetails(props) {
 
     const {domain, language, changeLanguage, user, changeUser, campaign, changeCampaign} = useContext(ThemeContext)
 
-    const [categories, setCategories] = useState([])
-
-    const backUrl = domain + 'items/'
-
-    useEffect(() => fetchCategories(), [])
-    useEffect(() => fetchCategories(), [campaign])
-
-    function fetchCategories() {
-        fetch(backUrl + "categories/" + campaign.id)
-            .then(response => response.json())
-            .then(json => setCategories(json))
-    }
-
-    function categoryDropdown() {
-        let options = []
-        for(let i=0; i<categories.length; i++) {
-            options.push(
-                <option value={i}>{categories[i].name}</option>
-            )
-        }
-
-        return(
-            <select class="form-select select-dropdown my-1 square-3-nd" onChange={(event) => true}>
-                {options}
-            </select>
-        )
-    }
-
     return(
         <div class="d-flex flex-column">
-            <div class="d-flex flex-row justify-content-between align-items-center">
-                {text.displayText('fieldname', language) + " :"}
-                <input 
-                    type="text" 
-                    class="form-control square-3-nd" 
-                    id="inputDefault" 
-                    onChange={event => props.actionOnChange(event.target.value)}
-                    value={props.selected.label}/>
-            </div>
-            <div class="d-flex flex-row justify-content-between align-items-center">
-                {text.displayText('category', language) + " :"}
-                {categoryDropdown()}
-            </div>
+            <LibelleInput
+                selected={props.selected}
+                actionOnChange = {props.actionOnChange}
+            />
+            <CategoryDropdown 
+                selected={props.selected}
+            />
             <OptionRadio 
                 title="nameposition"
                 options={["top", "left"]}

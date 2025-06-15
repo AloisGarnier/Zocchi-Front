@@ -4,18 +4,19 @@ import { ThemeContext } from "../utils/context.js"
 import * as text from "../utils/text.js" 
 import { DndContext } from "@dnd-kit/core"
 import SheetPortion from "./SheetPortion.js"
-import Label from "./items/Label.js"
 import Trash from "./Trash.js"
 import ItemStore from "./ItemStore.js"
 import ItemDetails from "./ItemDetails.js"
-import NumField from "./items/Numfield.js"
-import NumFieldBonus from "./items/Numfieldbonus.js"
-import TextField from "./items/TextField.js"
-import NumFieldOver from "./items/NumFieldOver.js"
-import LargeTextField from "./items/LargeTextField.js"
-import SimpleList from "./items/SimpleList.js"
-import ItemList from "./items/ItemList.js"
-import Formula from "./items/Formula.js"
+
+import Label from "./itemcreate/Label.js"
+import NumField from "./itemcreate/Numfield.js"
+import NumFieldBonus from "./itemcreate/Numfieldbonus.js"
+import TextField from "./itemcreate/TextField.js"
+import NumFieldOver from "./itemcreate/NumFieldOver.js"
+import LargeTextField from "./itemcreate/LargeTextField.js"
+import SimpleList from "./itemcreate/SimpleList.js"
+import ItemList from "./itemcreate/ItemList.js"
+import Formula from "./itemcreate/Formula.js"
 
 export default function TemplateCreation(props) {
 
@@ -79,7 +80,6 @@ export default function TemplateCreation(props) {
             if(selected.id.toString().includes("new")) {
                 type = selected.id.toString().substring(3).toLowerCase() + "/"
                 value = "empty/"
-                console.log(type)
                 const requestOptions = {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },

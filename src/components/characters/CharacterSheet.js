@@ -11,6 +11,7 @@ import FormulaDisplay from "./itemdisplay/FormulaDisplay.js"
 import TextFieldDisplay from "./itemdisplay/TextFieldDisplay.js"
 import LargeTextFieldDisplay from "./itemdisplay/LargeTextFieldDisplay.js"
 import SimpleListDisplay from "./itemdisplay/SimpleListDisplay.js"
+import ItemListDisplay from "./itemdisplay/ItemListDisplay.js"
 
 export default function CharacterSheet(props) {
 
@@ -52,6 +53,7 @@ export default function CharacterSheet(props) {
                     case "simplelist":
                         return <SimpleListDisplay character={props.sheet} element={element}/>
                     case "itemlist":
+                        return <ItemListDisplay character={props.sheet} element={element}/>
                     default:
                         break
                 }

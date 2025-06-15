@@ -20,6 +20,7 @@ import JoinCampaign from "./account/JoinCampaign.js"
 import NewCampaign from "./account/NewCampaign.js"
 import CampaignOptions from "./campaign/CampaignOptions.js"
 import Index from "./index/Index.js"
+import Legal from "./legal/Legal.js"
 
 export default function App() {
 
@@ -48,6 +49,7 @@ export default function App() {
             <Route exact path="/rejoindre-campagne" element={<JoinCampaign/>}/>
             <Route exact path="/nouvelle-campagne" element={<NewCampaign/>}/>
             <Route exact path="/options" element={<CampaignOptions/>}/>
+            <Route exact path="/legal" element={<Legal/>}/>
             <Route path="*" element={<Navigate to="/"/>}/>
           </Routes>
         </div>
