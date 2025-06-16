@@ -11,7 +11,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     allowedHosts: [
-      '34.155.210.161'
+      '34.155.189.90'
        ],
     client: {
       overlay: {
