@@ -10,7 +10,7 @@ import ItemDetails from "./ItemDetails.js"
 
 import Label from "./itemcreate/Label.js"
 import NumField from "./itemcreate/NumField.js"
-import NumFieldBonus from "./itemcreate/NumFieldbonus.js"
+import NumFieldBonus from "./itemcreate/NumFieldBonus.js"
 import TextField from "./itemcreate/TextField.js"
 import NumFieldOver from "./itemcreate/NumFieldOver.js"
 import LargeTextField from "./itemcreate/LargeTextField.js"

@@ -4,7 +4,7 @@ import Label from "./itemcreate/Label.js"
 
 import * as text from "../utils/text.js" 
 import NumField from "./itemcreate/NumField.js"
-import NumFieldBonus from "./itemcreate/NumFieldbonus.js"
+import NumFieldBonus from "./itemcreate/NumFieldBonus.js"
 import TextField from "./itemcreate/TextField.js"
 import NumFieldOver from "./itemcreate/NumFieldOver.js"
 import SimpleList from "./itemcreate/SimpleList.js"
