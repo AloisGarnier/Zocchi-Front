@@ -10,7 +10,8 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    allowedHosts: "all",
+    disableHostCheck: true,
+    allowedHosts: ['all'],
     client: {
       overlay: {
         runtimeErrors: false, 
