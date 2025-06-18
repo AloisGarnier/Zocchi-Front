@@ -10,8 +10,12 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    disableHostCheck: true,
-    allowedHosts: ['all'],
+    allowedHosts: [
+      '34.163.215.231',
+      '34.155.189.90',
+      'www.bieresetpizzas.fr',
+      'bieresetpizzas.fr'
+       ],
     client: {
       overlay: {
         runtimeErrors: false, 
