@@ -4,7 +4,7 @@ export const ThemeContext = createContext()
 
 export const ThemeProvider = ({ children }) => {
     //const domain = "http://localhost:8081/"
-    const domain = "https://34.163.215.231:8081/"
+    const domain = "https://api.bieresetpizzas.fr/"
 
     const campaignUrl = domain + 'campaign/'
 
