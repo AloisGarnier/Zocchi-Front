@@ -92,7 +92,7 @@ export default function MenuPrincipal(props) {
 
     function badges(c) {
         if(!c.characterName) {
-            return <i class="fa-solid fa-scroll-old"></i>
+            return <i class="fa-solid fa-crown"></i>
         }
     }
 
@@ -102,7 +102,7 @@ export default function MenuPrincipal(props) {
             if(campaigns && typeof campaigns[Symbol.iterator] === 'function' && campaigns.length > 0) {
                 for(let c of campaigns) {
                     if(campaign && c.code == campaign.code) {
-                        campaignDisplay.push(<Dropdown.Item className="green" onClick={() => changeCampaign(c)}>{displayCampaign(c)} {badges(c)}</Dropdown.Item>)
+                        campaignDisplay.push(<Dropdown.Item className="light-green" onClick={() => changeCampaign(c)}>{displayCampaign(c)} {badges(c)}</Dropdown.Item>)
                     } else {
                         campaignDisplay.push(<Dropdown.Item onClick={() => changeCampaign(c)}>{displayCampaign(c)} {badges(c)}</Dropdown.Item>)
                     }

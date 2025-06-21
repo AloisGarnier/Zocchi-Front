@@ -33,12 +33,12 @@ export default function FormulaDisplay(props) {
     }
 
     function processValue(newValue) {
+        setValue(newValue)
         const requestOptions = {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
             }
         fetch(backUrl + "update/" + props.character.id + "/" + props.element.id + "/" + (newValue != "" ? newValue : "empty") + "/empty", requestOptions)
-            .then(() => setValue(newValue))
     }
 
     function treatPosition() {

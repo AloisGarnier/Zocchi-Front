@@ -137,6 +137,10 @@ ul, li {
     color: green !important;
   }
 
+  .light-green {
+    color: lightgreen !important;
+  }
+
   .blue {
     color: blueviolet !important;
   }
@@ -209,6 +213,10 @@ ul, li {
     text-align : justify !important;
   }
 
+  .form-control {
+    padding: .375rem 0 .375rem .725rem !important 
+  }
+
   /*=========== icones ============= */
 
   .large-icon {
@@ -221,6 +229,11 @@ ul, li {
 
   .img-icon {
     max-width: 50px !important;
+  }
+
+  .img-inprogress {
+    margin: 50px !important;
+    max-width: 200px !important;
   }
 
   /* mainmenu */

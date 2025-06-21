@@ -11,6 +11,7 @@ export default function MenuCampagne(props) {
         {chemin : "/personnages", icone : "fa-duotone fa-solid fa-images-user", nom : text.displayText('char', language)},
         {chemin : "/index", icone : "fa-duotone fa-solid fa-scroll-old", nom : text.displayText('index', language)},
         {chemin : "/lieux", icone : "fa-duotone fa-solid fa-globe-stand", nom : text.displayText('lieux', language)},
+        {chemin : "/evenements", icone : "fa-duotone fa-solid fa-feather", nom : text.displayText('events', language)},
         {chemin : "/combat", icone : "fa-duotone fa-solid fa-swords", nom : text.displayText('combat', language)},
         {chemin : "/des", icone : "fa-duotone fa-solid fa-dice-d20", nom : text.displayText('dice', language)},
     ]

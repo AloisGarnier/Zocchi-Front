@@ -22,6 +22,7 @@ import CampaignOptions from "./campaign/CampaignOptions.js"
 import Index from "./index/Index.js"
 import Legal from "./legal/Legal.js"
 import News from "./news/News.js"
+import InProgress from "./inprogress/InProgress.js"
 
 export default function App() {
 
@@ -52,7 +53,8 @@ export default function App() {
             <Route exact path="/options" element={<CampaignOptions/>}/>
             <Route exact path="/legal" element={<Legal/>}/>
             <Route exact path="/nouveautes" element={<News/>}/>
-            <Route path="*" element={<Navigate to="/"/>}/>
+            <Route exact path="/enconstruction" element={<InProgress/>}/>
+            <Route path="*" element={<Navigate to="/enconstruction"/>}/>
           </Routes>
         </div>
       </div>

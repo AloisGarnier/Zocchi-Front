@@ -14,13 +14,11 @@ export default function LabelDisplay(props) {
 
     const backUrl = domain + 'charsheet/'
     
-    const [value, setValue] = useState("")
     const [options, setOptions] = useState({})
 
     useEffect(() => fetchInitialValues(), [])
 
     function processJson(json) {
-        setValue(json.value)
         setOptions(json.element.options)
     }
 
@@ -32,48 +30,29 @@ export default function LabelDisplay(props) {
         }
     }
 
-    function processValue(newValue) {
-        const requestOptions = {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-            }
-        fetch(backUrl + "update/" + props.character.id + "/" + props.element.id + "/" + (newValue != "" ? newValue : "empty") + "/empty", requestOptions)
-            .then(() => setValue(newValue))
-    }
-
-    function treatPosition() {
-        switch(options.position) {
-            case "TOP":
-                return(
-                    <div class="d-flex flex-column align-items-center m-2">
-                        <div>{props.element.label}</div>
-                        <input class="form-control numfield" value={value} onChange={event => processValue(event.target.value)}/>
-                    </div>
-                )
-            case "LEFT":
-                return(
-                    <div class="d-flex flex-row align-items-center m-2">
-                        <div class="mx-1">{props.element.label}</div>
-                        <input class="form-control numfield mx-1" value={value} onChange={event => processValue(event.target.value)}/>
-                    </div>
-                )
-            default:
-                break
+    function treatSize() {
+        switch(options.size) {
+            case "LARGE":
+                return <h2 class="mx-1">{props.element.label}</h2>
+            case "MEDIUM":
+                return <h4 class="mx-1">{props.element.label}</h4>
+            case "SMALL":
+                return <div class="mx-1">{props.element.label}</div>
         }
     }
 
     function treatVisibility() {
         switch(options.visibility) {
             case "EVERYBODY":
-                return treatPosition()
+                return treatSize()
             case "GAMEMASTERANDPLAYER":
                 if(!campaign.characterName || campaign.characterId == props.character.id) {
-                    return treatPosition()
+                    return treatSize()
                 }
                 break
             case "GAMEMASTERONLY":
                 if(!campaign.characterName) {
-                    return treatPosition()
+                    return treatSize()
                 }
                 break
             default:

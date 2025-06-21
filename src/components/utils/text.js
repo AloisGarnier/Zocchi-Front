@@ -100,6 +100,8 @@ texts.gamemasterandplayer = ["Joueur", "Player too"]
 texts.everybody = ["Tous", "Everybody"]
 // Index / Catégories
 texts.newcategory = ["Créer une nouvelle catégorie", "Create a new category"]
+// Autres
+texts.inprogress = ["En cours de construction", "Work in progress"]
 // Longs textes
 texts.presentation=[
     <div>

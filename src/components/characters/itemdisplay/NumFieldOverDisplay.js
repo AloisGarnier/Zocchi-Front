@@ -35,12 +35,13 @@ export default function NumFieldBonusDisplay(props) {
     }
 
     function processValue(newValue, newSecondary) {
+        setValue(newValue)
+        setSecondary(newSecondary)
         const requestOptions = {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
             }
         fetch(backUrl + "update/" + props.character.id + "/" + props.element.id + "/" + (newValue != "" ? newValue : "empty") + "/" + (newSecondary != "" ? newSecondary : "empty") , requestOptions)
-            .then(() => {setValue(newValue); setSecondary(newSecondary)})
     }
 
     function treatPosition() {

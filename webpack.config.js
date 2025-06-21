@@ -14,7 +14,8 @@ module.exports = {
       '34.163.215.231',
       '34.155.189.90',
       'www.bieresetpizzas.fr',
-      'bieresetpizzas.fr'
+      'bieresetpizzas.fr',
+      'localhost'
        ],
     client: {
       overlay: {
